@@ -21,7 +21,7 @@ manifest:
   projects:
     - name: zmk
       remote: ZitaoTech
-      revision: bbkeyboard_tp
+      revision: bbkeyboards_q10_9983
       import: app/west.yml
     # - name: zmk
     #   remote: urob
