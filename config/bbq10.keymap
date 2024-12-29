@@ -325,8 +325,8 @@ ZMK_LAYER(num,
 				__    __      __       __    __
      SH(HASH) SH(N1) SH(N2) SH(N3) SH(LPAR)         SH(RPAR) SH(UNDER) SH(MINUS) SH(PLUS) SH(AT)
      SH(STAR) SH(N4) SH(N5) SH(N6) SH(FSLH)         SH(COLON) SH(SEMI) SH(SQT) SH(DQT) __
-  __ DBLE(N7) DBLE(N8) DBLE(N9) DBLE(QMARK)         SH(EXCL) SH(COMMA) SH(DOT) __ __
-                                 __ &tog NUM __         __ __
+          __ SH(N7) SH(N8) SH(N9) SH(QMARK)         SH(EXCL) SH(COMMA) SH(DOT) __ __
+                                 __ SH(N0) __         __ __
 )
 
 ZMK_LAYER(func,
