@@ -161,8 +161,8 @@ ZMK_MACRO(arrow_down,
 )
 
 // MOD-MORPH
-ZMK_MOD_MORPH(sft_tab,
-     bindings = <&sl FUNC>, <&kp TAB>;
+ZMK_MOD_MORPH(bksp_tab,
+     bindings = <&kp BKSP>, <&kp TAB>;
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
@@ -171,8 +171,8 @@ ZMK_MOD_MORPH(num_stab,
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
-ZMK_MOD_MORPH(hyp_spc_stab,
-     bindings = <&hm RMEH SPACE>, <&kp LS(TAB)>;
+ZMK_MOD_MORPH(ret_spc_tab,
+     bindings = <&hm RET SPACE>, <&kp TAB>;
      mods = <(MOD_LSFT)>; // left hand only
 )
 ZMK_MOD_MORPH(dot_excl,
@@ -275,23 +275,24 @@ ZMK_COMBO(combo_sys, &sl SYS, 37 41, ALL)
 //        -----------------------------------------------------------------------------------------------------------------
 //
 // LAYERS
-// ZMK_LAYER(home,
-//                  &bootloader                            &sys_reset
-//                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-// 		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
-//                  SH(A) SH(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) SH(I) SH(O)
-// 		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl SH(FSLH)
-//          &ltt FUNC BKSP &num_stab &hyp_spc_stab        &sft_tab &ltt FUNC RET
-// )
-
 ZMK_LAYER(home,
                  &bootloader                            &sys_reset
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 SH(Q) SH(W) SH(E) SH(R) SH(T)         SH(Y) SH(U) SH(I) SH(O) SH(P)
-                 SH(A) SH(S) SH(D) SH(F) SH(G)         SH(H) SH(J) SH(K) SH(L) SH(BKSP)
-       &kpsl FUNC LALT SH(Z) SH(X) SH(C) SH(V)         SH(B)  SH(N) SH(M)  &hm LCTL DLLR SH(RET)
- &mosk NAV LSFT &number_word NUM &hyp_spc_stab        &sft_tab &mosk NAV LSFT
+		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
+             HLP(A) HLR(R) HLM(S) HLI(T) SH(G)         SH(M) HRI(N) HRM(E) HRR(I) HRP(O)
+		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl SH(FSLH)
+         // &ltt FUNC BKSP &num_stab &ret_spc_tab        &bksp_tab &ltt FUNC RET
+ &mosk NAV LSFT &number_word NUM &ret_spc_tab        &bksp_tab &mosk NAV LSFT
 )
+
+// ZMK_LAYER(home,
+//                  &bootloader                            &sys_reset
+//                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
+// 		 SH(Q) SH(W) SH(E) SH(R) SH(T)         SH(Y) SH(U) SH(I) SH(O) SH(P)
+//              HLP(A) HLR(S) HLM(D) HLI(F) SH(G)         SH(H) HRI(J) HRM(K) HRR(L) HRP(BKSP)
+//        &kpsl FUNC LALT SH(Z) SH(X) SH(C) SH(V)         SH(B)  SH(N) SH(M)  &hm LCTL DLLR SH(RET)
+//  &mosk NAV LSFT &number_word NUM &ret_spc_tab        &bksp_tab &mosk NAV LSFT
+// )
 
 ZMK_LAYER(caps,
 				__                     __
@@ -311,23 +312,23 @@ ZMK_LAYER(arrow,
 				     __ __ __         __ __
 )
 
-// ZMK_LAYER(num,
-// 				__                     __
-// 				__    __      __       __    __
-//     SH(HOME) SH(AT) SH(HASH) SH(DLLR) SH(PRCNT)         SH(CARET) DBLE(AMPS) SH(STAR) DBLE(PIPE) SH(END)
-// 	     SH(N1) SH(N2) SH(N3) SH(N4) SH(N5)         SH(N6) SH(N7) SH(N8) SH(N9) SH(N0)
-// SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(UNDER) __ __ __
-//                                  __ &tog NUM __         __ __
-// )
-
 ZMK_LAYER(num,
 				__                     __
 				__    __      __       __    __
-     SH(HASH) SH(N1) SH(N2) SH(N3) SH(LPAR)         SH(RPAR) SH(UNDER) SH(MINUS) SH(PLUS) SH(AT)
-     SH(STAR) SH(N4) SH(N5) SH(N6) SH(FSLH)         SH(COLON) SH(SEMI) SH(SQT) SH(DQT) __
-          __ SH(N7) SH(N8) SH(N9) SH(QMARK)         SH(EXCL) SH(COMMA) SH(DOT) __ __
-                                 __ SH(N0) __         __ __
+    SH(HOME) SH(AT) SH(HASH) SH(DLLR) SH(PRCNT)         SH(CARET) DBLE(AMPS) SH(STAR) DBLE(PIPE) SH(END)
+	     SH(N1) SH(N2) SH(N3) SH(N4) SH(N5)         SH(N6) SH(N7) SH(N8) SH(N9) SH(N0)
+SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(UNDER) __ __ __
+                                 __ &tog NUM __         __ __
 )
+//
+// ZMK_LAYER(num,
+// 				__                     __
+// 				__    __      __       __    __
+//      SH(HASH) SH(N1) SH(N2) SH(N3) SH(LPAR)         SH(RPAR) SH(UNDER) SH(MINUS) SH(PLUS) SH(AT)
+//      SH(STAR) SH(N4) SH(N5) SH(N6) SH(FSLH)         SH(COLON) SH(SEMI) SH(SQT) SH(DQT) __
+//           __ SH(N7) SH(N8) SH(N9) SH(QMARK)         SH(EXCL) SH(COMMA) SH(DOT) __ __
+//                                  __ SH(N0) __         __ __
+// )
 
 ZMK_LAYER(func,
 				__                     __
