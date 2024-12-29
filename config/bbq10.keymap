@@ -91,6 +91,12 @@ ZMK_HOLD_TAP(ltt,
      quick-tap-ms = <180>;
      bindings = <&mo>, <&kp>;
 )
+ZMK_HOLD_TAP(mosk,
+     flavor = "tap-preferred";
+     tapping-term-ms = <200>;
+     quick-tap-ms = <180>;
+     bindings = <&mo>, <&sk>;
+)
 ZMK_HOLD_TAP(kpsk,
      flavor = "tap-preferred";
      tapping-term-ms = <200>;
@@ -156,17 +162,17 @@ ZMK_MACRO(arrow_down,
 
 // MOD-MORPH
 ZMK_MOD_MORPH(sft_tab,
-     bindings = <&kpsk RMEH RSFT>, <&kp TAB>;
+     bindings = <&sl FUNC>, <&kp TAB>;
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
 ZMK_MOD_MORPH(num_stab,
-     bindings = <&kpsl RMEH NUM>, <&kp LS(TAB)>;
+     bindings = <&sl NUM>, <&kp LS(TAB)>;
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
-ZMK_MOD_MORPH(nav_spc_tab,
-     bindings = <&ltt NAV SPACE>, <&kp TAB>;
+ZMK_MOD_MORPH(hyp_spc_stab,
+     bindings = <&kpsl RMEH SPACE>, <&kp LS(TAB)>;
      mods = <(MOD_LSFT)>; // left hand only
 )
 ZMK_MOD_MORPH(dot_excl,
@@ -238,31 +244,26 @@ ZMK_MOD_MORPH(quote,
 )
 
 
-//       0  1  2  3  4         5  6  7  8  9
-//      10 11 12 13 14        15 16 17 18 19
-//      20 21 22 23 24        25 26 27 28 29
-//            30 31 32        33 34
+//       0                                 1
+//                  2  3  4  5  6         
+//       7  8  9 10 11        12 13 14 15 16
+//      17 18 19 20 21        22 23 24 25 26
+//      27 28 29 30 31        32 33 34 35 36
+//            37 38 39        40 41
 // COMBOS
 #undef COMBO_TERM
 #define COMBO_TERM 40
 
 // GLOBAL
-ZMK_COMBO(combo_base, &to BASE, 31 33, ALL)
+ZMK_COMBO(combo_base, &to BASE, 38 40, ALL)
 
 #undef COMBO_HOOK
 #define COMBO_HOOK require-prior-idle-ms = <120>;
-ZMK_COMBO(combo_caps, &begin_cap_word, 13 16, ALL)
-ZMK_COMBO(combo_num, &number_word NUM, 12 17, ALL)
-ZMK_COMBO(combo_func, &func_word FUNC, 11 18, ALL)
-ZMK_COMBO(combo_wezterm, &kp LC(B), 10 19, ALL)
+ZMK_COMBO(combo_caps, &begin_cap_word, 37 41, ALL)
+ZMK_COMBO(combo_num, &number_word NUM, 17 26, ALL)
+ZMK_COMBO(combo_func, &func_word FUNC, 27 36, ALL)
 
-ZMK_COMBO(combo_sys, &sl SYS, 30 34, ALL)
-
-// FN & NUM LAYER
-ZMK_COMBO(combo_left_abkt, ABKT, 16 19, NUM FUNC)
-ZMK_COMBO(combo_left_bkt,  BKT,  10 13, NUM FUNC)
-ZMK_COMBO(combo_left_par,  PAR, 17 18, NUM FUNC)
-ZMK_COMBO(combo_left_brc,  BRC, 11 12, NUM FUNC)
+ZMK_COMBO(combo_sys, &sl SYS, 37 41, ALL)
 
 //         --------------------------------------------------------------------------------------------------------------------------         
 //         |    Shoulder Key1    |                                                                             |    Shoulder Key2    |     
@@ -274,13 +275,22 @@ ZMK_COMBO(combo_left_brc,  BRC, 11 12, NUM FUNC)
 //        -----------------------------------------------------------------------------------------------------------------
 //
 // LAYERS
+// ZMK_LAYER(home,
+//                  &bootloader                            &sys_reset
+//                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
+// 		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
+//                  SH(A) SH(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) SH(I) SH(O)
+// 		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl SH(FSLH)
+//          &ltt FUNC BKSP &num_stab &hyp_spc_stab        &sft_tab &ltt FUNC RET
+// )
+
 ZMK_LAYER(home,
                  &bootloader                            &sys_reset
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
-             HLP(A) HLR(R) HLM(S) HLI(T) SH(G)         SH(M) HRI(N) HRM(E) HRR(I) HRP(O)
-		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl SH(FSLH)
-          &ltt FUNC BKSP &num_stab &nav_spc_tab        &sft_tab &ltt FUNC RET
+		 SH(Q) SH(W) SH(E) SH(R) SH(T)         SH(Y) SH(U) SH(I) SH(O) SH(P)
+                 SH(A) SH(S) SH(D) SH(F) SH(G)         SH(H) SH(J) SH(K) SH(L) SH(BKSP)
+       &kpsl FUNC LALT SH(Z) SH(X) SH(C) SH(V)         SH(B)  SH(N) SH(M)  &hm LCTL DLLR SH(RET)
+ &mosk NAV LSFT &number_word NUM &hyp_spc_stab        &sft_tab &mosk NAV LSFT
 )
 
 ZMK_LAYER(caps,
@@ -301,12 +311,21 @@ ZMK_LAYER(arrow,
 				     __ __ __         __ __
 )
 
+// ZMK_LAYER(num,
+// 				__                     __
+// 				__    __      __       __    __
+//     SH(HOME) SH(AT) SH(HASH) SH(DLLR) SH(PRCNT)         SH(CARET) DBLE(AMPS) SH(STAR) DBLE(PIPE) SH(END)
+// 	     SH(N1) SH(N2) SH(N3) SH(N4) SH(N5)         SH(N6) SH(N7) SH(N8) SH(N9) SH(N0)
+// SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(UNDER) __ __ __
+//                                  __ &tog NUM __         __ __
+// )
+
 ZMK_LAYER(num,
 				__                     __
 				__    __      __       __    __
-    SH(HOME) SH(AT) SH(HASH) SH(DLLR) SH(PRCNT)         SH(CARET) DBLE(AMPS) SH(STAR) DBLE(PIPE) SH(END)
-	     SH(N1) SH(N2) SH(N3) SH(N4) SH(N5)         SH(N6) SH(N7) SH(N8) SH(N9) SH(N0)
-SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(UNDER) __ __ __
+     SH(HASH) SH(N1) SH(N2) SH(N3) SH(LPAR)         SH(RPAR) SH(UNDER) SH(MINUS) SH(PLUS) SH(AT)
+     SH(STAR) SH(N4) SH(N5) SH(N6) SH(FSLH)         SH(COLON) SH(SEMI) SH(SQT) SH(DQT) __
+  __ DBLE(N7) DBLE(N8) DBLE(N9) DBLE(QMARK)         SH(EXCL) SH(COMMA) SH(DOT) __ __
                                  __ &tog NUM __         __ __
 )
 
