@@ -162,7 +162,7 @@ ZMK_MACRO(arrow_down,
 
 // MOD-MORPH
 ZMK_MOD_MORPH(bksp_tab,
-     bindings = <&kp BKSP>, <&kp TAB>;
+     bindings = <&hm ESC BKSP>, <&kp TAB>;
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
@@ -171,8 +171,8 @@ ZMK_MOD_MORPH(num_stab,
      mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
-ZMK_MOD_MORPH(ret_spc_tab,
-     bindings = <&hm RET SPACE>, <&kp TAB>;
+ZMK_MOD_MORPH(meh_spc_tab,
+     bindings = <&hm MEH SPACE>, <&kp TAB>;
      mods = <(MOD_LSFT)>; // left hand only
 )
 ZMK_MOD_MORPH(dot_excl,
@@ -278,11 +278,11 @@ ZMK_COMBO(combo_sys, &sl SYS, 37 41, ALL)
 ZMK_LAYER(home,
                  &bootloader                            &bt BT_CLR
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
-             HLP(A) HLR(R) HLM(S) HLI(T) SH(G)         SH(M) HRI(N) HRM(E) HRR(I) HRP(O)
-		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl SH(FSLH)
-         // &ltt FUNC BKSP &num_stab &ret_spc_tab        &bksp_tab &ltt FUNC RET
- &mosk NAV LSFT &number_word NUM &ret_spc_tab        &bksp_tab &mosk NAV LSFT
+		 HLP(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
+		 HLM(A) HLI(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) HRI(I) HRM(O)
+		 HLR(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl HRR(FSLH)
+         // &ltt FUNC BKSP &num_stab &meh_spc_tab        &bksp_tab &ltt FUNC RET
+ &mosk NAV LSFT &number_word NUM &meh_spc_tab        &ltt FUNC RET &bksp_tab
 )
 
 // ZMK_LAYER(home,
@@ -291,7 +291,7 @@ ZMK_LAYER(home,
 // 		 SH(Q) SH(W) SH(E) SH(R) SH(T)         SH(Y) SH(U) SH(I) SH(O) SH(P)
 //              HLP(A) HLR(S) HLM(D) HLI(F) SH(G)         SH(H) HRI(J) HRM(K) HRR(L) HRP(BKSP)
 //        &kpsl FUNC LALT SH(Z) SH(X) SH(C) SH(V)         SH(B)  SH(N) SH(M)  &hm LCTL DLLR SH(RET)
-//  &mosk NAV LSFT &number_word NUM &ret_spc_tab        &bksp_tab &mosk NAV LSFT
+//  &mosk NAV LSFT &number_word NUM &meh_spc_tab        &bksp_tab &mosk NAV LSFT
 // )
 
 ZMK_LAYER(caps,
