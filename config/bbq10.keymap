@@ -172,7 +172,7 @@ ZMK_MOD_MORPH(num_stab,
      keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
 )
 ZMK_MOD_MORPH(meh_spc_tab,
-     bindings = <&hm MEH SPACE>, <&kp TAB>;
+     bindings = <&hm LMEH SPACE>, <&kp TAB>;
      mods = <(MOD_LSFT)>; // left hand only
 )
 ZMK_MOD_MORPH(dot_excl,
