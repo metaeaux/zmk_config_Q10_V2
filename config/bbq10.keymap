@@ -276,7 +276,7 @@ ZMK_COMBO(combo_sys, &sl SYS, 37 41, ALL)
 //
 // LAYERS
 ZMK_LAYER(home,
-                 &bootloader                            &sys_reset
+                 &bootloader                            &bt BT_CLR
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
 		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
              HLP(A) HLR(R) HLM(S) HLI(T) SH(G)         SH(M) HRI(N) HRM(E) HRR(I) HRP(O)
