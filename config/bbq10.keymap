@@ -14,9 +14,11 @@
 #define ARROW 2
 #define NUM 3
 #define FUNC 4
-#define NAV 5
+#define GAME 5
+#define NAV 6
 
 #define __ &trans
+#define XX &none
 #define LMEH LS(LA(LCTL))
 #define RMEH RS(RA(RCTL))
 
@@ -313,12 +315,21 @@ HLP(LBKT) HLR(LBRC) HLM(RBRC) HLI(RBKT) TTY(F11)          TTY(F12) HRI(LT) HRM(L
 			       __ &tog FUNC __          &tog FUNC &kp DEL
 )
 
+ZMK_LAYER(game,
+				__                     __
+				__    __      __       __    __
+                               XX KP_U XX XX XX         XX XX XX &kp Y XX
+			 KP_L &kp L  KP_R XX XX         XX XX &kp X &kp R &kp A
+                               XX KP_D XX XX XX         XX XX XX &kp B XX
+				__ __ &kp SPACE         &kp RET &kp ESC
+)
+
 ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
 		   BT(4) BT(3) BT(2) BT(1) BT(0)         __ &kp HOME &kp LS(TAB) &kp TAB &kp END
 			       __ __ __ __ VOLUP         BRUP &arrow_left &arrow_down &arrow_up &arrow_right
    &bt BT_CLR &out OUT_BLE &out OUT_USB __ VOLDN         BRDN HLP(BACK) HLR(PTAB) HLM(NTAB) HLI(FORWARD)
-				        __ __ __         __ &kp DEL
+				  __ __ &tog GAME         __ &kp DEL
 )
 
