@@ -317,8 +317,8 @@ ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
 		   BT(4) BT(3) BT(2) BT(1) BT(0)         __ &kp HOME &kp LS(TAB) &kp TAB &kp END
-			BRDN BRUP VOLDN VOLUP __         __ &arrow_left &arrow_down &arrow_up &arrow_right
-      &out OUT_BLE &out OUT_USB __ __ &bt BT_CLR         __ HLP(BACK) HLR(PTAB) HLM(NTAB) HLI(FORWARD)
+			       __ __ __ __ VOLUP         BRUP &arrow_left &arrow_down &arrow_up &arrow_right
+   &bt BT_CLR &out OUT_BLE &out OUT_USB __ VOLDN         BRDN HLP(BACK) HLR(PTAB) HLM(NTAB) HLI(FORWARD)
 				        __ __ __         __ &kp DEL
 )
 
