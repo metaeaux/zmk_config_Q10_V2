@@ -214,7 +214,8 @@ ZMK_MACRO(end_cap_word,
      bindings = <&kp K_CANCEL &to BASE>;
 )
 ZMK_MACRO_ONE_PARAM(dble,
-     wait-ms = <500>;
+     wait-ms = <50>;
+     tap-ms = <30>;
      bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 ZMK_MACRO_ONE_PARAM(wrap1,
@@ -285,7 +286,7 @@ ZMK_LAYER(home,
 		 HLP(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
 		 HLM(A) HLI(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) HRI(I) HRM(O)
 		 HLR(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl HRR(FSLH)
-	     &cap_dance &num_dance &hm LMEH SPACE        &ltt FUNC RET &hm ESC BKSP
+	     &cap_dance &num_dance &ltt MEH SPACE        &ltt FUNC RET &hm ESC BKSP
 )
 
 ZMK_LAYER(caps,
