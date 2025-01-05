@@ -300,9 +300,9 @@ ZMK_LAYER(caps,
 
 ZMK_LAYER(arrow,
 				__                     __
-				__    __      __       __    __
-                               __ __ __ __ __         __ KP_L KP_D KP_U KP_R
+				  __    __      __       __    __
                                __ __ __ __ __         __ __ __ __ __
+                               __ __ __ __ __         __ KP_L KP_D KP_U KP_R
                                __ __ __ __ __         __ __ __ __ __
 				     __ __ __         __ __
 )
@@ -311,9 +311,9 @@ ZMK_LAYER(meh,
 				__                     __
 				__    __      __       __    __
 
-		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) DBDB(L) DBDB(U) DBDB(Y) DBDB(SQT)
-		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) DBDB(N) DBDB(E) DBDB(I) DBDB(O)
-		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX      XX      DBDB(DOT) DBDB(FSLH)
+		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
+		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) &arrow_left &arrow_down &arrow_up   &arrow_right
+		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX          XX          &kp LS(TAB) &kp TAB
 					       __ __ __        __ __
 )
 
@@ -347,9 +347,9 @@ ZMK_LAYER(game,
 ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
-		   BT(4) BT(3) BT(2) BT(1) BT(0)         __   &arrow_left &arrow_down &arrow_up   &arrow_right
-			       __ __ __ XX VOLUP         BRUP XX          XX          &kp LS(TAB) &kp TAB
-   &bt BT_CLR &out OUT_BLE &out OUT_USB __ VOLDN         BRDN &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
-				  __ __ &tog GAME         __ &kp DEL
+				  __ __ __ __ __         BT(4) BT(3) BT(2) BT(1) BT(0)
+				  __ __ __ XX __         __    XX         XX              VOLUP BRUP
+			  &bt BT_CLR __ __ __ __         __  &out OUT_BLE &out OUT_USB    VOLDN BRDN
+				  __ __ &tog GAME        __     &kp DEL
 )
 
