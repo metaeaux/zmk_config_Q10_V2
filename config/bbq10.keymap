@@ -327,9 +327,9 @@ SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(
 ZMK_LAYER(func,
 				__                     __
 				__    __      __       __    __
-       TTY(F1) TTY(F2) TTY(F3) TTY(F4) TTY(F5)          TTY(F6) TTY(F7) TTY(F8) TTY(F9) TTY(F10)
-HLP(LBKT) HLR(LBRC) HLM(RBRC) HLI(RBKT) TTY(F11)          TTY(F12) HRI(LT) HRM(LPAR) HRR(RPAR) HRP(GT)
-	&shell_arg &arrow2 &arrow1 &endsemi __          __ __ &kp HOME &kp END __
+       HLR(LBRC) HLM(RBRC) TTY(F1) TTY(F2) XX          XX       TTY(F3)  XX    HRM(LPAR) HRR(RPAR)
+       HLP(LBKT) HLR(RBKT) XX      XX      TTY(F11)    TTY(F12) XX       XX    HRI(LT)   HRP(GT)
+	&shell_arg &arrow2 &arrow1 &endsemi __          __ __ __ &kp HOME &kp END
 			       __ &tog FUNC __          &tog FUNC &kp DEL
 )
 
