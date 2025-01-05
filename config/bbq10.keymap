@@ -62,7 +62,7 @@
 #define TTY(X) &sh LA(LC(X)) X
 #define WR1(X) &wrap1 X
 #define KPWR(X) &kp_wrap X X
-#define DBL(X) &dble_dble LMEH(X) LHYP(X)
+#define DBDB(X) &dble_dble LMEH(X) LHYP(X)
 #define DBLE(X) &kp_dble X X
 #define PAR &wrap2 LPAR RPAR
 #define BRC &wrap2 LBRC RBRC
@@ -309,9 +309,9 @@ ZMK_LAYER(arrow,
 ZMK_LAYER(meh,
                  &bootloader                            &bt BT_CLR
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 DBL(Q) DBL(W) DBL(F) DBL(P) DBL(B)         DBL(J) DBL(L) DBL(U) DBL(Y) DBL(SQT)
-		 DBL(A) DBL(R) DBL(S) DBL(T) DBL(G)         DBL(M) DBL(N) DBL(E) DBL(I) DBL(O)
-		 DBL(Z) XX     DBL(C) XX     DBL(V)         DBL(K) XX     XX     DBL(DOT) DBL(FSLH)
+		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) DBDB(L) DBDB(U) DBDB(Y) DBDB(SQT)
+		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) DBDB(N) DBDB(E) DBDB(I) DBDB(O)
+		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX      XX      DBDB(DOT) DBDB(FSLH)
 	     &cap_dance &num_dance &ltt MEH SPACE        &ltt FUNC RET &hm ESC BKSP
 )
 
