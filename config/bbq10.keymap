@@ -214,7 +214,7 @@ ZMK_MACRO(end_cap_word,
      bindings = <&kp K_CANCEL &to BASE>;
 )
 ZMK_MACRO_ONE_PARAM(dble,
-     wait-ms = <100>;
+     wait-ms = <200>;
      bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 ZMK_MACRO_ONE_PARAM(wrap1,
@@ -345,9 +345,9 @@ ZMK_LAYER(game,
 ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
-		   BT(4) BT(3) BT(2) BT(1) BT(0)         __ &kp HOME &kp LS(TAB) &kp TAB &kp END
-			       __ __ __ __ VOLUP         BRUP &arrow_left &arrow_down &arrow_up &arrow_right
-   &bt BT_CLR &out OUT_BLE &out OUT_USB __ VOLDN         BRDN HLP(BACK) HLR(PTAB) HLM(NTAB) HLI(FORWARD)
+		   BT(4) BT(3) BT(2) BT(1) BT(0)         __   &arrow_left &arrow_down &arrow_up   &arrow_right
+			       __ __ __ XX VOLUP         BRUP XX          XX          &kp LS(TAB) &kp TAB
+   &bt BT_CLR &out OUT_BLE &out OUT_USB __ VOLDN         BRDN &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
 				  __ __ &tog GAME         __ &kp DEL
 )
 
