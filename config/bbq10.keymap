@@ -214,7 +214,7 @@ ZMK_MACRO(end_cap_word,
      bindings = <&kp K_CANCEL &to BASE>;
 )
 ZMK_MACRO_ONE_PARAM(dble,
-     wait-ms = <10>;
+     wait-ms = <50>;
      bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 ZMK_MACRO_ONE_PARAM(wrap1,
