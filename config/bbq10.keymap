@@ -307,12 +307,13 @@ ZMK_LAYER(arrow,
 )
 
 ZMK_LAYER(meh,
-                 &bootloader                            &bt BT_CLR
-                 &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
+				__                     __
+				__    __      __       __    __
+
 		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) DBDB(L) DBDB(U) DBDB(Y) DBDB(SQT)
 		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) DBDB(N) DBDB(E) DBDB(I) DBDB(O)
 		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX      XX      DBDB(DOT) DBDB(FSLH)
-	     &cap_dance &num_dance &ltt MEH SPACE        &ltt FUNC RET &hm ESC BKSP
+					       __ __ __        __ __
 )
 
 ZMK_LAYER(num,
