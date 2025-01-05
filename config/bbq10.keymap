@@ -12,15 +12,17 @@
 #define BASE 0
 #define WORD 1
 #define ARROW 2
-#define NUM 3
-#define FUNC 4
-#define GAME 5
-#define NAV 6
+#define MEH 3
+#define NUM 4
+#define FUNC 5
+#define GAME 6
+#define NAV 7
 
 #define __ &trans
 #define XX &none
 #define LMEH LS(LA(LCTL))
 #define RMEH RS(RA(RCTL))
+#define LHYP LG(LS(LA(LCTL)))
 
 #define KP_L &kp LEFT
 #define KP_D &kp DOWN
@@ -60,6 +62,7 @@
 #define TTY(X) &sh LA(LC(X)) X
 #define WR1(X) &wrap1 X
 #define KPWR(X) &kp_wrap X X
+#define DBL(X) &dble_dble LMEH(X) LHYP(X)
 #define DBLE(X) &kp_dble X X
 #define PAR &wrap2 LPAR RPAR
 #define BRC &wrap2 LBRC RBRC
@@ -234,6 +237,12 @@ ZMK_HOLD_TAP(kp_dble,
      quick-tap-ms = <180>;
      bindings = <&dble>, <&kp>;
 )
+ZMK_HOLD_TAP(dble_dble,
+     flavor = "tap-preferred";
+     tapping-term-ms = <200>;
+     quick-tap-ms = <180>;
+     bindings = <&dble>, <&dble>;
+)
 
 ZMK_MACRO(arrow1,
      wait-ms = <10>;
@@ -297,6 +306,15 @@ ZMK_LAYER(arrow,
 				     __ __ __         __ __
 )
 
+ZMK_LAYER(meh,
+                 &bootloader                            &bt BT_CLR
+                 &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
+		 DBL(Q) DBL(W) DBL(F) DBL(P) DBL(B)         DBL(J) DBL(L) DBL(U) DBL(Y) DBL(SQT)
+		 DBL(A) DBL(R) DBL(S) DBL(T) DBL(G)         DBL(M) DBL(N) DBL(E) DBL(I) DBL(O)
+		 DBL(Z) XX     DBL(C) XX     DBL(V)         DBL(K) XX     XX     DBL(DOT) DBL(FSLH)
+	     &cap_dance &num_dance &ltt MEH SPACE        &ltt FUNC RET &hm ESC BKSP
+)
+
 ZMK_LAYER(num,
 				__                     __
 				__    __      __       __    __
@@ -318,10 +336,10 @@ HLP(LBKT) HLR(LBRC) HLM(RBRC) HLI(RBKT) TTY(F11)          TTY(F12) HRI(LT) HRM(L
 ZMK_LAYER(game,
 				__                     __
 				__    __      __       __    __
-                               XX KP_U XX XX XX         XX XX XX &kp Y XX
-			 KP_L &kp L  KP_R XX XX         XX XX &kp X &kp R &kp A
-                               XX KP_D XX XX XX         XX XX XX &kp B XX
-				__ __ &kp SPACE         &kp RET &kp ESC
+                               XX KP_U XX XX XX         XX &kp R XX XX XX
+			 KP_L &kp L  KP_R XX XX         XX &kp A &kp B XX XX
+                               XX KP_D XX XX XX         XX &kp X &kp Y XX XX
+			 &tog GAME __ &kp SPACE         &kp RET &kp M
 )
 
 ZMK_LAYER(nav,
