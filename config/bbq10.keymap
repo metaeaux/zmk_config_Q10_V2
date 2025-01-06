@@ -225,7 +225,7 @@ ZMK_MACRO(end_cap_word,
      bindings = <&kp K_CANCEL &to BASE>;
 )
 ZMK_MACRO_ONE_PARAM(iosdbl,
-     wait-ms = <100>;
+     wait-ms = <150>;
      tap-ms = <30>;
      bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
