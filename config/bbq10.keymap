@@ -12,10 +12,10 @@
 #define BASE 0
 #define WORD 1
 #define ARROW 2
-#define MEH 3
-#define NUM 4
-#define FUNC 5
-#define GAME 6
+#define NUM 3
+#define FUNC 4
+#define GAME 5
+#define SYS 6
 #define NAV 7
 
 #define __ &trans
@@ -143,7 +143,12 @@ ZMK_TAP_DANCE(num_dance,
 )
 
 ZMK_TAP_DANCE(cap_dance, 
-    bindings = <&mosk NAV LSFT>, <&cap_word>;
+    bindings = <&hm ESC LSFT>, <&cap_word>;
+    tapping-term-ms = <200>;
+)
+
+ZMK_TAP_DANCE(space, 
+    bindings = <&ltt NAV SPACE>, <&kp LG(SPACE)>;
     tapping-term-ms = <200>;
 )
 
@@ -213,9 +218,13 @@ ZMK_MACRO(end_cap_word,
      wait-ms = <0>;
      bindings = <&kp K_CANCEL &to BASE>;
 )
-ZMK_MACRO_ONE_PARAM(dble,
-     wait-ms = <50>;
+ZMK_MACRO_ONE_PARAM(iosdbl,
+     wait-ms = <100>;
      tap-ms = <30>;
+     bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+)
+ZMK_MACRO_ONE_PARAM(dble,
+     wait-ms = <10>;
      bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 ZMK_MACRO_ONE_PARAM(wrap1,
@@ -242,7 +251,7 @@ ZMK_HOLD_TAP(dble_dble,
      flavor = "tap-preferred";
      tapping-term-ms = <200>;
      quick-tap-ms = <180>;
-     bindings = <&dble>, <&dble>;
+     bindings = <&iosdbl>, <&iosdbl>;
 )
 
 ZMK_MACRO(arrow1,
@@ -279,14 +288,61 @@ ZMK_MOD_MORPH(quote,
 //        |         aA     |         0           |           SPACE              |         SYM         |        aA          |       
 //        -----------------------------------------------------------------------------------------------------------------
 //
+// q w f p b j l u y '
+// a r s t g m n e i o
+// z x c d v k h , . /
+// ls 0 spc sym rs
+// 
+// row1
+// _ w _ _ b j _ u _ '
+// a r s t g m n e i o
+// z x c d v k h , . /
+// ls 0 spc sym rs
+//
+// row2
+// q _ f p b j l u y '
+// a _ s t _ _ n e _ o
+// z x c d v k h , . /
+// ls 0 spc sym rs
+// 
+// row3
+// q w f p _ _ l _ y '
+// a r _ t g m n e i o
+// z x c d v k h , . /
+// ls 0 spc _ rs
+//
+// row4
+// q w f p b j l u y _
+// _ r s t g m n e i _
+// z x c d v k h , . _
+// ls 0 spc sym _
+//
+// row5
+// q w f p b j l u y '
+// a r s t g m n e i o
+// _ x _ d _ _ h , _ /
+// ls 0 spc sym rs
+//
+// row6
+// q w f p b j l u y '
+// a r s t g m n e i o
+// z _ c _ v h _ _ . /
+// ls 0 _ sym rs
+//
+// row7
+// q w f p b j l u y '
+// a r s _ g m _ _ i o
+// z x c d v k h , . /
+// _ _ spc sym rs
+//
 // LAYERS
 ZMK_LAYER(home,
                  &bootloader                            &bt BT_CLR
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 HLP(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
-		 HLM(A) HLI(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) HRI(I) HRM(O)
-		 HLR(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl HRR(FSLH)
-	     &cap_dance &num_dance &ltt MEH SPACE        &ltt FUNC RET &hm ESC BKSP
+		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
+		 SH(A) SH(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) SH(I) SH(O)
+		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl &kpsk LALT FSLH
+		  &cap_dance &num_dance &space         &kpsk LCTL RET &hm LA(BKSP) BKSP
 )
 
 ZMK_LAYER(caps,
@@ -307,16 +363,6 @@ ZMK_LAYER(arrow,
 				     __ __ __         __ __
 )
 
-ZMK_LAYER(meh,
-				__                     __
-				__    __      __       __    __
-
-		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
-		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) &arrow_left &arrow_down &arrow_up   &arrow_right
-		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX          XX          &kp LS(TAB) &kp TAB
-					       __ __ __        __ __
-)
-
 ZMK_LAYER(num,
 				__                     __
 				__    __      __       __    __
@@ -329,10 +375,10 @@ SH(TILDE) DBLE(MINUS) DBLE(PLUS) DBLE(EQUAL) DBLE(COLON)        DBLE(BSLH) DBLE(
 ZMK_LAYER(func,
 				__                     __
 				__    __      __       __    __
-       HLR(LBRC) HLM(RBRC) TTY(F1) TTY(F2) XX          XX       TTY(F3)  XX    HRM(LPAR) HRR(RPAR)
-       HLP(LBKT) HLR(RBKT) XX      XX      TTY(F11)    TTY(F12) XX       XX    HRI(LT)   HRP(GT)
-	&shell_arg &arrow2 &arrow1 &endsemi __          __ __ __ &kp HOME &kp END
-			       __ &tog FUNC __          &tog FUNC &kp DEL
+				__ __ __ __ __          __   SH(LT)   SH(GT)   SH(LBKT) SH(RBKT) 
+				__ __ __ XX __          __   XX       XX       SH(LBRC) SH(RBRC) 
+	&shell_arg &arrow2 &arrow1 &endsemi __          __   __       __       SH(LPAR) SH(RPAR)
+				 &to BASE __ __         __ __
 )
 
 ZMK_LAYER(game,
@@ -341,15 +387,24 @@ ZMK_LAYER(game,
                                XX KP_U XX XX XX         XX &kp R XX XX XX
 			 KP_L &kp L  KP_R XX XX         XX &kp A &kp B XX XX
                                XX KP_D XX XX XX         XX &kp X &kp Y XX XX
-			 &tog GAME __ &kp SPACE         &kp RET &kp M
+				 &to BASE __ __         &kp RET &kp M
+)
+
+ZMK_LAYER(sys,
+				__                     __
+				__    __      __       __    __
+			  __ __ __ __ &bootloader        BT(4) BT(3) BT(2) BT(1) BT(0)
+				  __ __ __ XX __         __    XX         XX              VOLUP BRUP
+			  &bt BT_CLR __ __ __ __         __  &out OUT_BLE &out OUT_USB    VOLDN BRDN
+				  &to BASE __ __         __     &kp DEL
 )
 
 ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
-				  __ __ __ __ __         BT(4) BT(3) BT(2) BT(1) BT(0)
-				  __ __ __ XX __         __    XX         XX              VOLUP BRUP
-			  &bt BT_CLR __ __ __ __         __  &out OUT_BLE &out OUT_USB    VOLDN BRDN
-				  __ __ &tog GAME        __     &kp DEL
-)
 
+		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
+		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) &arrow_left &arrow_down &arrow_up   &arrow_right
+		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX          XX          &kp LS(TAB) &kp TAB
+				    &tog GAME &sl SYS __        __ &hm LA(DEL) DEL
+)
