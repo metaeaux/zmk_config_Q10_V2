@@ -63,7 +63,8 @@
 #define WR1(X) &wrap1 X
 #define KPWR(X) &kp_wrap X X
 #define DBDB(X) &dble_dble LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
-#define HYME(X) &hm LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
+// #define HYME(X) &hm LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
+#define HYME(X) &kp LS(LA(LC(X))) 
 #define DBLE(X) &kp_dble X X
 #define PAR &wrap2 LPAR RPAR
 #define BRC &wrap2 LBRC RBRC
