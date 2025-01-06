@@ -113,6 +113,12 @@ ZMK_HOLD_TAP(kpsk,
      quick-tap-ms = <180>;
      bindings = <&kp>, <&sk>;
 )
+ZMK_HOLD_TAP(skkp,
+     flavor = "tap-preferred";
+     tapping-term-ms = <200>;
+     quick-tap-ms = <180>;
+     bindings = <&sk>, <&kp>;
+)
 ZMK_HOLD_TAP(kpsl,
      flavor = "tap-preferred";
      tapping-term-ms = <200>;
@@ -143,7 +149,7 @@ ZMK_TAP_DANCE(num_dance,
 )
 
 ZMK_TAP_DANCE(cap_dance, 
-    bindings = <&hm ESC LSFT>, <&cap_word>;
+    bindings = <&skkp ESC LSFT>, <&cap_word>;
     tapping-term-ms = <200>;
 )
 
