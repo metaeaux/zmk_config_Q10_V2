@@ -153,6 +153,10 @@ ZMK_TAP_DANCE(cap_dance,
     bindings = <&kpsk ESC LSFT>, <&cap_word>;
     tapping-term-ms = <200>;
 )
+ZMK_TAP_DANCE(quote_dance, 
+    bindings = <&quote>, <&kp RIGHT>;
+    tapping-term-ms = <200>;
+)
 
 ZMK_TAP_DANCE(space, 
     bindings = <&ltt NAV SPACE>, <&kp LG(SPACE)>;
@@ -361,7 +365,7 @@ ZMK_MOD_MORPH(quote,
 ZMK_LAYER(home,
                  &bootloader                            &bt BT_CLR
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
-		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote
+		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote_dance
 		 SH(A) SH(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) SH(I) SH(O)
 		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl &skkp LALT FSLH
 		  &cap_dance &num_dance &space         &skkp LCTL RET &hm LA(BKSP) BKSP
@@ -418,7 +422,7 @@ ZMK_LAYER(sys,
 			  __ __ __ __ &bootloader        BT(4) BT(3) BT(2) BT(1) BT(0)
 				  __ __ __ XX __         __    XX         XX              VOLUP BRUP
 			  &bt BT_CLR __ __ __ __         __  &out OUT_BLE &out OUT_USB    VOLDN BRDN
-				  &to BASE __ __         __     &kp DEL
+				  &to BASE __ __         __  __
 )
 
 ZMK_LAYER(nav,
