@@ -63,6 +63,7 @@
 #define WR1(X) &wrap1 X
 #define KPWR(X) &kp_wrap X X
 #define DBDB(X) &dble_dble LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
+#define HYME(X) &hm LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
 #define DBLE(X) &kp_dble X X
 #define PAR &wrap2 LPAR RPAR
 #define BRC &wrap2 LBRC RBRC
@@ -409,8 +410,8 @@ ZMK_LAYER(nav,
 				__                     __
 				__    __      __       __    __
 
-		 DBDB(Q) DBDB(W) DBDB(F) DBDB(P) DBDB(B)         DBDB(J) &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
-		 DBDB(A) DBDB(R) DBDB(S) DBDB(T) DBDB(G)         DBDB(M) &arrow_left &arrow_down &arrow_up   &arrow_right
-		 DBDB(Z) XX      DBDB(C) XX      DBDB(V)         DBDB(K) XX          XX          &kp LS(TAB) &kp TAB
+		 HYME(Q) HYME(W) HYME(F) HYME(P) HYME(B)         HYME(J) &kp BACK    &kp PTAB    &kp NTAB    &kp FORWARD
+		 HYME(A) HYME(R) HYME(S) HYME(T) HYME(G)         HYME(M) &arrow_left &arrow_down &arrow_up   &arrow_right
+		 HYME(Z) XX      HYME(C) XX      HYME(V)         HYME(K) XX          XX          &kp LS(TAB) &kp TAB
 				    &tog GAME &sl SYS __        __ &hm LA(DEL) DEL
 )
