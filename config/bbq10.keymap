@@ -63,8 +63,7 @@
 #define WR1(X) &wrap1 X
 #define KPWR(X) &kp_wrap X X
 #define DBDB(X) &dble_dble LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
-// #define HYME(X) &hm LG(LS(LA(LC(X)))) LS(LA(LC(X))) 
-#define HYME(X) &kp LS(LA(LC(X))) 
+#define HYME(X) &meh_hyp X X 
 #define DBLE(X) &kp_dble X X
 #define PAR &wrap2 LPAR RPAR
 #define BRC &wrap2 LBRC RBRC
@@ -226,10 +225,25 @@ ZMK_MACRO(end_cap_word,
      wait-ms = <0>;
      bindings = <&kp K_CANCEL &to BASE>;
 )
-ZMK_MACRO_ONE_PARAM(iosdbl,
-     wait-ms = <250>;
+ZMK_MACRO_ONE_PARAM(iosmeh,
+     wait-ms = <15>;
      tap-ms = <30>;
-     bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+     bindings = <&macro_press &kp LSFT &kp LCTL &kp LALT>
+	        , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+	        , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_release &kp LSFT &kp LCTL &kp LALT>;
+)
+ZMK_MACRO_ONE_PARAM(ioshyp,
+     wait-ms = <15>;
+     tap-ms = <30>;
+     bindings = <&macro_press &kp LGUI &kp LSFT &kp LCTL &kp LALT>
+	        , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+	        , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_release &kp LGUI &kp LSFT &kp LCTL &kp LALT>;
 )
 ZMK_MACRO_ONE_PARAM(dble,
      wait-ms = <10>;
@@ -255,11 +269,11 @@ ZMK_HOLD_TAP(kp_dble,
      quick-tap-ms = <180>;
      bindings = <&dble>, <&kp>;
 )
-ZMK_HOLD_TAP(dble_dble,
+ZMK_HOLD_TAP(meh_hyp,
      flavor = "tap-preferred";
      tapping-term-ms = <200>;
      quick-tap-ms = <180>;
-     bindings = <&iosdbl>, <&iosdbl>;
+     bindings = <&ioshyp>, <&iosmeh>;
 )
 
 ZMK_MACRO(arrow1,
