@@ -367,8 +367,8 @@ ZMK_LAYER(home,
                  &kp CLCK     &kp LGUI        &mkp LCLK      &kp ESC    &kp TAB
 		 SH(Q) SH(W) SH(F) SH(P) SH(B)         SH(J) SH(L) SH(U) SH(Y) &quote_dance
 		 SH(A) SH(R) SH(S) SH(T) SH(G)         SH(M) SH(N) SH(E) SH(I) SH(O)
-		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl &skkp LALT FSLH
-		  &cap_dance &num_dance &space         &skkp LCTL RET &hm LA(BKSP) BKSP
+		 SH(Z) SH(X) SH(C) SH(D) SH(V)         SH(K) SH(H)  &comma_semicolon &dot_excl &hm LG(SPACE) FSLH
+	  &cap_dance &num_dance &ltt NAV SPACE         &skkp LCTL RET &hm LA(BKSP) BKSP
 )
 
 ZMK_LAYER(caps,
