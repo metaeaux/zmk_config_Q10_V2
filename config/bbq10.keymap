@@ -24,10 +24,10 @@
 #define RMEH RS(RA(RCTL))
 #define LHYP LG(LS(LA(LCTL)))
 
-#define KP_L &kp LEFT
+#define KP_L &hm LA(LEFT) LEFT
 #define KP_D &kp DOWN
 #define KP_U &kp UP
-#define KP_R &kp RIGHT
+#define KP_R &hm LA(RIGHT) RIGHT
 #define SEL_L &kp LS(LEFT)
 #define SEL_D &kp LS(DOWN)
 #define SEL_U &kp LS(UP)
@@ -194,6 +194,42 @@ ZMK_MACRO(arrow_down,
 	<&macro_pause_for_release>,
 	<&macro_release &kp DOWN>,
 	<&macro_tap &arrow ARROW>;
+)
+ZMK_MACRO(arrow_ul,
+     wait-ms = <0>;
+     tap-ms = <5>;
+     bindings = <&macro_press &kp LEFT>,
+	<&macro_press &kp UP>,
+	<&macro_pause_for_release>,
+	<&macro_release &kp UP>,
+	<&macro_release &kp LEFT>;
+)
+ZMK_MACRO(arrow_ur,
+     wait-ms = <0>;
+     tap-ms = <5>;
+     bindings = <&macro_press &kp RIGHT>,
+	<&macro_press &kp UP>,
+	<&macro_pause_for_release>,
+	<&macro_release &kp UP>,
+	<&macro_release &kp RIGHT>;
+)
+ZMK_MACRO(arrow_dl,
+     wait-ms = <0>;
+     tap-ms = <5>;
+     bindings = <&macro_press &kp LEFT>,
+	<&macro_press &kp DOWN>,
+	<&macro_pause_for_release>,
+	<&macro_release &kp DOWN>,
+	<&macro_release &kp LEFT>;
+)
+ZMK_MACRO(arrow_dr,
+     wait-ms = <0>;
+     tap-ms = <5>;
+     bindings = <&macro_press &kp RIGHT>,
+	<&macro_press &kp DOWN>,
+	<&macro_pause_for_release>,
+	<&macro_release &kp DOWN>,
+	<&macro_release &kp RIGHT>;
 )
 
 // MOD-MORPH
@@ -383,9 +419,9 @@ ZMK_LAYER(caps,
 ZMK_LAYER(arrow,
 				__                     __
 				  __    __      __       __    __
-                               __ __ __ __ __         __ __ __ __ __
+			   HLM(Q) __ __ __ __         __ __ __ __ __
                                __ __ __ __ __         __ KP_L KP_D KP_U KP_R
-                               __ __ __ __ __         __ __ __ __ __
+			   HLI(Z) __ __ __ __         __ __ __ __ __
 				     __ __ __         __ __
 )
 
@@ -410,9 +446,9 @@ ZMK_LAYER(func,
 ZMK_LAYER(game,
 				__                     __
 				__    __      __       __    __
-                               XX KP_U XX XX XX         XX &kp R XX XX XX
-			 KP_L &kp L  KP_R XX XX         XX &kp A &kp B XX XX
-                               XX KP_D XX XX XX         XX &kp X &kp Y XX XX
+		 &arrow_ul &kp UP &arrow_ur XX XX         XX &kp R XX XX XX
+		   &kp LEFT &kp L &kp RIGHT XX XX         XX &kp A &kp B XX XX
+	       &arrow_dl &kp DOWN &arrow_dr XX XX         XX &kp X &kp Y XX XX
 				 &to BASE __ __         &kp RET &kp M
 )
 
